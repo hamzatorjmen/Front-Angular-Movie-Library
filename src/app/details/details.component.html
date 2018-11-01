@@ -1,0 +1,11 @@
+<div *ngIf="movie" >
+<h1>{{ movie.title }}</h1>
+
+<ul>
+  <li><strong>Title: </strong> {{ movie.title }}</li>
+  <li><strong>Director: </strong> {{ movie.director }}</li>
+  <li><strong>Release Date: </strong> {{ movie.releaseDate }}</li>
+  <li><strong>Type: </strong> {{ movie.type }}</li>
+  <li><button (click)="loadListOfMovies()">return to list of movies</button></li>
+</ul>
+</div>
