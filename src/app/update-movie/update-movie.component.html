@@ -1,3 +1,17 @@
-<p>
-  update-movie works!
-</p>
+<h1>Update Movie</h1>
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <label for="title">Title : </label>
+  <input formControlName="title" placeholder="Title" name="title" id="title">
+
+  <label for="director">Title : </label>
+  <input formControlName="director" placeholder="director" name="director" id="director">
+
+  <label for="releaseDate">Release Date : </label>
+  <input type="date" formControlName="releaseDate" placeholder="ReleaseDate" name="releaseDate" id="releaseDate">
+
+  <label for="type">Type : </label>
+  <input formControlName="type" placeholder="Type" name="type" id="type">
+
+  <button>Update Movie</button>
+</form>

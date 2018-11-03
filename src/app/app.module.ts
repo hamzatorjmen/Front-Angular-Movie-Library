@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http' ;
 import { DataService } from './data.service';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,16 @@ import { UpdateMovieComponent } from './update-movie/update-movie.component';
     MoviesComponent,
     DetailsComponent,
     AddMovieComponent,
-    UpdateMovieComponent
+    UpdateMovieComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    HttpModule,
+    FormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

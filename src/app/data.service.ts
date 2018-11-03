@@ -20,4 +20,13 @@ export class DataService {
     console.log(this.baseUrl + movie.id);
     return this.http.delete(this.baseUrl + movie.id) ;
   }
+  addMovie(movie: Movie){
+    return this.http.post(this.baseUrl, movie);
+  }
+  updateMovie(movie: Movie){
+    return this.http.put<Movie>(this.baseUrl+movie.id, movie);
+  }
+  loadJsonFile() {
+    return this.http.get<Movie[]>("./assets/movies.json");
+  }
 }

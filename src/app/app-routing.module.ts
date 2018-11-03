@@ -4,7 +4,12 @@ import { DetailsComponent } from './details/details.component'
 import { MoviesComponent } from './movies/movies.component'
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
   {
     path: 'details/:id',
     component: DetailsComponent
@@ -18,7 +23,7 @@ const routes: Routes = [
     component: AddMovieComponent
   },
   {
-    path: 'update-movie',
+    path: 'update-movie/:id',
     component: UpdateMovieComponent
   },
 ];

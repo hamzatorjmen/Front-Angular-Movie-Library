@@ -1,21 +1,30 @@
 <h1>List of Movies</h1>
-
-<button (click)="addMovie()"> Add Movie</button>
-<table border="3">
+<button class="btn btn-danger" (click)="loadJSONFile()"> Load JSON File</button>
+<button class="btn btn-danger" (click)="addMovie()"> Add Movie</button>
+<input type="text" placeholder="Search By Title" [(ngModel)]="searchTermByTitle" />
+<input type="text" placeholder="Search By Director" [(ngModel)]="searchTermByDirector" />
+<input type="date" placeholder="Search By Release Date" [(ngModel)]="searchTermByReleaseDate" />
+<input type="text" placeholder="Search By Type" [(ngModel)]="searchTermByType" />
+<table class="table table-striped">
+  <thead>
   <tr>
-    <td>Title</td>
-    <td>Director</td>
-    <td>ReleaseDate</td>
-    <td>Type</td>
-    <td>Details</td>
-    <td>Action</td>
+    <th sortable-column="title">Title</th>
+    <th sortable-column="director">Director</th>
+    <th sortable-column="releaseDate">ReleaseDate</th>
+    <th sortable-column="type">Type</th>
+    <th>Details</th>
+    <th>Action</th>
   </tr>
-  <tr *ngFor="let movie of movies">
+</thead>
+<tbody>
+  <tr *ngFor="let movie of filteredMovies">
     <td>{{ movie.title }}</td>
     <td>{{ movie.director }}</td>
     <td>{{ movie.releaseDate }}</td>
     <td>{{ movie.type }}</td>
     <td><a routerLink="/details/{{ movie.id }}">Details</a></td>
-    <td><button (click)="deleteMovie(movie)"> Delete</button></td>
+    <td><button class="btn btn-danger" (click)="deleteMovie(movie)"> Delete</button>
+      <button class="btn btn-danger" (click)="editMovie(movie)" style="margin-left: 20px;"> Edit</button></td>
   </tr>
+</tbody>
 </table>
