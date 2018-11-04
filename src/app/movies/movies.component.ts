@@ -1,5 +1,5 @@
-import { Component, OnInit, Injectable, Inject, Input, HostListener } from '@angular/core';
-import { DataService } from '../data.service' ;
+import { Component, OnInit} from '@angular/core';
+import { DataService } from '../services/data.service' ;
 import { Observable } from 'rxjs' ;
 import { Movie } from '../model/movie.model';
 import { Router } from '@angular/router';
@@ -17,21 +17,13 @@ export class MoviesComponent implements OnInit {
   _searchTermByDirector: string;
   _searchTermByReleaseDate: string;
   _searchTermByType: string;
-  
-  @Input('sortable-column')
-  columnName: string;
-
-  @Input('sort-direction')
-  sortDirection: string = '';
-
-  @HostListener('click')
-  sort() {
-      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  }
 
   constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
+    this.dataService.getMovies().subscribe(
+      data => this.movies = data
+    )
     this.dataService.getMovies().subscribe(
       data => this.filteredMovies = data
     )

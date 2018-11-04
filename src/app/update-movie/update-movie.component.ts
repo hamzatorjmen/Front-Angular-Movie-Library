@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../model/movie.model';
 import { Observable } from 'rxjs';
